@@ -1,11 +1,12 @@
 import React from "react";
 import Header from "../Header/Header";
-import ReactTable from "react-table";
 import data from '../../data/data.json'
 import StickyHeadTable from "../Table/Table";
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 
 const Dashboard = () => {
-    console.log(">>>>>>", ReactTable)
     const columns = [{
         Header: 'ROW ID',
         accessor: 'ROW ID'
@@ -110,43 +111,52 @@ const Dashboard = () => {
         Header: "RD CLAIM FORM",
         accessor: "RD CLAIM FORM"
     },
-    // {
-    //     Header: "HOSTEL",
-    //     accessor: "HOSTEL"
-    // },
-    // {
-    //     Header: "HOSTEL",
-    //     accessor: "HOSTEL"
-    // },
-    // {
-    //     Header: "HOSTEL",
-    //     accessor: "HOSTEL"
-    // },
-    // {
-    //     Header: "HOSTEL",
-    //     accessor: "HOSTEL"
-    // },
-    // {
-    //     Header: "HOSTEL",
-    //     accessor: "HOSTEL"
-    // },
-    // {
-    //     Header: "HOSTEL",
-    //     accessor: "HOSTEL"
-    // },
-    // {
-    //     Header: "HOSTEL",
-    //     accessor: "HOSTEL"
-    // },
-    // {
-    //     Header: "HOSTEL",
-    //     accessor: "HOSTEL"
-    // },
+        // {
+        //     Header: "HOSTEL",
+        //     accessor: "HOSTEL"
+        // },
+        // {
+        //     Header: "HOSTEL",
+        //     accessor: "HOSTEL"
+        // },
+        // {
+        //     Header: "HOSTEL",
+        //     accessor: "HOSTEL"
+        // },
+        // {
+        //     Header: "HOSTEL",
+        //     accessor: "HOSTEL"
+        // },
+        // {
+        //     Header: "HOSTEL",
+        //     accessor: "HOSTEL"
+        // },
+        // {
+        //     Header: "HOSTEL",
+        //     accessor: "HOSTEL"
+        // },
+        // {
+        //     Header: "HOSTEL",
+        //     accessor: "HOSTEL"
+        // },
+        // {
+        //     Header: "HOSTEL",
+        //     accessor: "HOSTEL"
+        // },
     ]
     return (
         <>
             <Header />
-            
+            <Box
+                m={1} //margin
+                display="flex"
+                justifyContent="flex-start"
+                alignItems="flex-start"
+            >
+                <Button variant="contained" endIcon={<AddCircleIcon />} >
+                    Add a new entry
+                </Button>
+            </Box>
             <StickyHeadTable />
         </>
     );
