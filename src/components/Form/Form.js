@@ -1,6 +1,4 @@
 import * as React from 'react';
-import SwipeableViews from 'react-swipeable-views';
-import { useTheme } from '@mui/material/styles';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
@@ -10,21 +8,16 @@ import FormPageTwo from './FormPageTwo/FormPageTwo';
 import FormPageThree from './FormPageThree/FormPageThree';
 
 const Form = () => {
-    const theme = useTheme();
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-    const handleChangeIndex = (index) => {
-        setValue(index);
-    };
-
     const a11yProps = (index) => {
         return {
-            id: `simple-tab-${index}`,
-            'aria-controls': `simple-tabpanel-${index}`,
+            id: `vertical-tab-${index}`,
+            'aria-controls': `vertical-tabpanel-${index}`,
         };
     }
 
@@ -33,8 +26,8 @@ const Form = () => {
             <div
                 role="tabpanel"
                 hidden={value !== index}
-                id={`simple-tabpanel-${index}`}
-                aria-labelledby={`simple-tab-${index}`}
+                id={`vertical-tabpanel-${index}`}
+                aria-labelledby={`vertical-tab-${index}`}
                 {...other}
             >
                 {value === index && (
@@ -48,21 +41,32 @@ const Form = () => {
 
 
     return (
-        <Box sx={{ width: '100%' }}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider', position: "fixed", backgroundColor: "white" }}>
-                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered >
-                    <Tab label="Page One" {...a11yProps(0)} />
-                    <Tab label="Page Two" {...a11yProps(1)} />
-                    <Tab label="Page Three" {...a11yProps(2)} />
-                </Tabs>
-            </Box>
-            <TabPanel value={value} index={0} >
+        <Box
+            sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 224 }}
+        >
+            <Tabs
+                orientation="vertical"
+                variant="scrollable"
+                value={value}
+                onChange={handleChange}
+                aria-label="Vertical tabs example"
+                sx={{ borderRight: 1, borderColor: 'divider' }}
+            >
+                <Tab label="Item One" {...a11yProps(0)} />
+                <Tab label="Item Two" {...a11yProps(1)} />
+                <Tab label="Item Three" {...a11yProps(2)} />
+                <Tab label="Submit" {...a11yProps(3)} />
+            </Tabs>
+            <TabPanel value={value} index={0}>
                 <FormPageOne />
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <FormPageTwo />
             </TabPanel>
             <TabPanel value={value} index={2}>
+                <FormPageThree />
+            </TabPanel>
+            <TabPanel value={value} index={3}>
                 <FormPageThree />
             </TabPanel>
         </Box>

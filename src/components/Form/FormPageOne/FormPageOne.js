@@ -112,6 +112,7 @@ const fields = [
 ]
 
 const FormPageOne = () => {
+    const screenWidth = 0.7 * window.screen.width
 
     const renderTextFields = () => {
         return fields.map((field) => {
@@ -125,13 +126,11 @@ const FormPageOne = () => {
             );
         });
     }
-
+    
     return (
-        <div className='form-outline'>
-            <FormControl  sx={{ m: 1, width: '70%' }}>
-                {renderTextFields()}
-            </FormControl>
-        </div >
+        <FormControl sx={{ m: 1, width: `${screenWidth}px` }}>
+            {renderTextFields()}
+        </FormControl>
     );
 
 }

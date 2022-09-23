@@ -118,10 +118,12 @@ const fields = [
         id: 'MS_Teams_ID_Deleted',
         label: 'MS Teams ID Deleted YES/NO',
     },
-    
+
 ]
 
 const FormPageThree = () => {
+    const screenWidth = 0.7 * window.screen.width
+
 
     const renderTextFields = () => {
         return fields.map((field) => {
@@ -137,11 +139,9 @@ const FormPageThree = () => {
     }
 
     return (
-        <div className='form-outline'>
-            <FormControl sx={{ m: 1, width: '70%' }}>
-                {renderTextFields()}
-            </FormControl>
-        </div >
+        <FormControl sx={{ m: 1, width: `${screenWidth}px`}}>
+            {renderTextFields()}
+        </FormControl>
     );
 
 }
