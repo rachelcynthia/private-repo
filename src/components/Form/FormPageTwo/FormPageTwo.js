@@ -116,16 +116,22 @@ const fields = [
 ]
 
 const FormPageTwo = () => {
-    const screenWidth = 0.7 * window.screen.width
+    const screenWidth = 0.7 * window.screen.width;
+
+    const setFormValue = (index, event) =>{
+        let value = event.target.value
+        fields[index].value = value;
+    }
 
     const renderTextFields = () => {
-        return fields.map((field) => {
+        return fields.map((field, index) => {
             return (
                 < TextField
                     required={field.required}
                     id={field.id}
                     label={field.label}
                     margin="normal"
+                    onChange= {((event)=> setFormValue(index, event))}
                 />
             );
         });
